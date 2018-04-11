@@ -1,0 +1,22 @@
+const baseUrl = 'http://localhost:8080'
+const config = {
+  locale: 'pt_BR', // en-US, zh-CN
+  // url: baseUrl,
+  // ajaxUploadUrl: `${baseUrl}/admin/api/upload`,
+  debug: {
+    mock: false, // enable mock
+    http: false // http request log
+  },
+  api: {
+    url: `${baseUrl}`
+  },
+  session_refresh: {
+    missing_minutes: 10
+  }
+  // locale: 'en', //en
+  // api: 'http://192.168.1.108:3333/admin/api'
+}
+
+global.config = config
+
+export default config
