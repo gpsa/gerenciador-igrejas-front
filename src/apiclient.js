@@ -8,6 +8,7 @@ const apiclient = axios.create({
 })
 
 apiclient.interceptors.request.use(config => {
+  console.log(config)
   if (store.state.token !== null) {
     config.headers['Authorization'] = store.state.token.token_type + ' ' + store.state.token.access_token
   }

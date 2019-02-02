@@ -27,7 +27,7 @@
                     :rules="rules.password"
                     v-validate="'required|min:3'"
                     :append-icon="e1 ? 'visibility_off' : 'visibility'"
-                    :append-icon-cb="() => (e1 = !e1)"
+                    @click:append="() => (e1 = !e1)"
                     :type="e1 ? 'text' : 'password'"
                     name="password"
             ></v-text-field>
@@ -67,10 +67,10 @@
     }),
     watch: {
       errors: {
-        handler: function (val, oldVal) {
+        handler: function () {
           const err = this.$validator.errors
 
-          Object.keys(this.rules).forEach((val, key) => {
+          Object.keys(this.rules).forEach((val) => {
             if (!this.rules[val]) {
               return
             }
@@ -107,7 +107,6 @@
             } else {
               this.dialog_msg = data.error.message
               this.dialog = true
-              console.error('Deu ruim', data)
             }
           })
         }).catch(err => {
