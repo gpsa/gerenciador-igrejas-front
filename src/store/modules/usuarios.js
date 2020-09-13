@@ -3,8 +3,8 @@ const usuarios = {
   state: {
     searchFilter: null,
     situacao: [
-      {'value': 0, 'text': 'Inativo'},
-      {'value': 1, 'text': 'Ativo'}
+      { 'value': 0, 'text': 'Inativo' },
+      { 'value': 1, 'text': 'Ativo' }
     ]
   },
   mutations: {

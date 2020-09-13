@@ -4,30 +4,30 @@ import axios from 'axios/index'
 // import helper from '@/helper'
 
 export default {
-  logout ({commit}) {
-    commit('setAuth', {user: {}, token: null})
+  logout ({ commit }) {
+    commit('setAuth', { user: {}, token: null })
   },
-  login ({commit}, data) {
+  login ({ commit }, data) {
     return axios.post(config.api.url + '/oauth', data).then((response) => {
       if (response.data.access_token) {
-        commit('setAuth', {user: {}, token: response.data})
+        commit('setAuth', { user: {}, token: response.data })
 
         // Get Usuário
         apiClient.get('/usuarios/usuario/me')
-          .then(({data}) => {
-            commit('setAuth', {user: data, token: Object.assign({startDate: new Date()}, response.data)})
+          .then(({ data }) => {
+            commit('setAuth', { user: data, token: Object.assign({ startDate: new Date() }, response.data) })
           })
 
-        return {status: true}
+        return { status: true }
       }
     }).catch(function (error) {
       let status = error.response && error.response.status ? error.response.status : 500
       let message = error.response && error.response.data ? error.response.data.detail : 'Erro ao conectar com o servidor remoto'
 
-      return {status: false, error: {status: status, message: message}}
+      return { status: false, error: { status: status, message: message } }
     })
   },
-  checkAuth ({commit}) {
+  checkAuth ({ commit }) {
     if (!this.state.token || !this.state.token.startDate) {
       return
     }
@@ -43,11 +43,11 @@ export default {
 
     if ((Math.trunc((deadline - now) / 60) % 60) <= config.session_refresh.missing_minutes) {
       axios.post(config.api.url + '/oauth', data).then((response) => {
-        commit('setAuth', {user: this.state.user, token: Object.assign({startDate: new Date()}, response.data)})
+        commit('setAuth', { user: this.state.user, token: Object.assign({ startDate: new Date() }, response.data) })
       })
     }
   },
-  checkPageTitle ({commit, state}, path) {
+  checkPageTitle ({ commit, state }, path) {
     for (let k in state.menu) {
       if (state.menu[k].href === path) {
         commit('setPageTitle', state.menu[k].title)
@@ -98,7 +98,7 @@ export default {
     let data = []
     let headers = []
 
-    args.headers.forEach(({text}) => {
+    args.headers.forEach(({ text }) => {
       headers.push(text)
     })
 

@@ -1,0 +1,11 @@
+version: "3"
+services:
+  gerenciador-igrejas-frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/code
+    working_dir: /code
+    ports:
+    - 8081:8080

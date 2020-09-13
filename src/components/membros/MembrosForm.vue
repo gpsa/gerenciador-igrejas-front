@@ -439,8 +439,6 @@
               this.dialog_errors = response.response.data.validation_messages
               this.openDialog('Atenção')
             }
-
-            // console.log(response)
           }).catch(function (error) {
             vm.dialog_errors = error.response.data.validation_messages ? error.response.data.validation_messages
               : (error.response.data.detail ? [error.response.data.detail] : ['Erro do servidor'])

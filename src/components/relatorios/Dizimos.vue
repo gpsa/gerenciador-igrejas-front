@@ -53,7 +53,7 @@
       <v-spacer></v-spacer>
       <v-flex xs11 sm2>
         <v-btn light :disabled="!dataInicial || !dataFinal" @click.prevent="submit">Consultar</v-btn>
-        <v-btn light :disabled="!dataInicial || !dataFinal || items.length == 0"
+        <v-btn light :disabled="!dataInicial || !dataFinal"
                @click.prevent="download">Exportar
         </v-btn>
       </v-flex>

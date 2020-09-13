@@ -5,7 +5,7 @@ export default {
     state.user = user
     helper.ls.set('user', user)
   },
-  setAuth (state, {user, token}) {
+  setAuth (state, { user, token }) {
     state.token = token
     helper.ls.set('token', token)
 
@@ -18,6 +18,6 @@ export default {
     state.pageTitle = data
   },
   showMessage (state, type, body) {
-    state.message = {type, body}
+    state.message = { type, body }
   }
 }

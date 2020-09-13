@@ -1,9 +1,8 @@
 <template>
     <v-layout row justify-center>
         <v-flex xs12 sm4>
-            <v-select
+            <v-autocomplete
                     label="Membro"
-                    autocomplete
                     cache-items
                     required
                     item-value="value"
@@ -13,7 +12,7 @@
                     :rules="[() => select > 0 || 'You must choose at least one']"
                     :search-input.sync="search"
                     v-model="select"
-            ></v-select>
+            ></v-autocomplete>
         </v-flex>
     </v-layout>
 </template>

@@ -68,7 +68,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer" v-if="menuCount>0"></v-toolbar-side-icon>
-      <v-toolbar-title>{{appName.toUpperCase()}}{{pageTitle ? ' - ' + pageTitle : ''}}</v-toolbar-title>
+      <v-toolbar-title>{{appName}}{{pageTitle ? ' - ' + pageTitle : ''}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <login-count-down :token="token"/>
     </v-toolbar>
@@ -87,6 +87,7 @@
 
 <script>
   import {mapState} from 'vuex'
+  import {default as config} from '@/config'
   import LoginCountDown from '@/components/general/LoginCountDown'
 
   export default {
@@ -98,7 +99,7 @@
         {icon: 'contacts', text: 'Dízimos', action: '/dizimos', auth: true},
         {icon: 'people', text: 'Membros', action: '/membros', auth: true},
         {icon: 'account_box', text: 'Usuários', action: '/usuarios', auth: true},
-        {heading: 'RELATÓRIOS'},
+        {heading: 'RELATÓRIOS', auth: true},
         {text: 'Aniversariantes', action: '/relatorios/aniversariantes', auth: true},
         {text: 'Dízimos', action: '/relatorios/dizimos', auth: true},
         {divider: true},
@@ -109,8 +110,7 @@
     computed: {
       ...mapState({
         token: state => state.token,
-        pageTitle: state => state.pageTitle,
-        appName: state => state.appName
+        pageTitle: state => state.pageTitle
       }),
       menu() {
         const vm = this
@@ -121,10 +121,13 @@
       },
       menuCount() {
         return this.menu.filter((value) => !value.divider).length
+      },
+      appName(){
+        return config.appName.toUpperCase();
       }
     },
     props: {
-      source: String
+      source: String('')
     }
   }
 </script>

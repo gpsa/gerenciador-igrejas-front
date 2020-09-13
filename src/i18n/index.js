@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import config from '@/config'
 import helper from '@/helper'
-import {Validator} from 'vee-validate'
+import { Validator } from 'vee-validate'
 
 const locales = ['en', 'pt_BR']
 
@@ -22,7 +22,7 @@ locales.forEach(v => {
 
 const i18n = new VueI18n({
   locale: helper.ls.get('locale', config.locale),
-  silentTranslationWarn: true,
+  silentTranslationWarn: process.env.NODE_ENV === 'production',
   messages
 })
 

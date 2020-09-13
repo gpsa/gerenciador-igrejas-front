@@ -2,6 +2,6 @@
 module.exports = {
     runtimeCompiler: true,
     configureWebpack: {
-        resolve: {}
+        resolve: {},
     }
 }

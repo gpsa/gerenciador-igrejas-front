@@ -135,7 +135,6 @@
     watch: {
       pagination: {
         handler (newVal, oldVal) {
-          console.log('novo val de pagination', newVal)
           this.getDataFromApi().then((data) => {
             this.items = data.items
             this.totalItems = data.pagination.totalItems

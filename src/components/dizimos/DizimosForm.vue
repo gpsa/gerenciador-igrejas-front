@@ -122,7 +122,6 @@
     },
     methods: {
       setDizimo (valor) {
-        console.log(valor)
         this.dizimo.valor = valor
         this.dizimo.valor2 = valor
       },
@@ -202,11 +201,9 @@
       }
 
       apiClient.get('/dizimos/dizimo/' + this.dizimo_id).then(({data}) => {
-        console.log(data)
         this.dizimo.id = data.id
         // this.dizimo.valor = this.$store.getters.parseNumber(data.valor)
         this.dizimo.valor = data.valor
-        console.log('valor: ' + data.valor)
         this.dizimo.data = this.$store.getters.formatDate(data.data.date)
       }).catch((error) => {
         console.error(error)

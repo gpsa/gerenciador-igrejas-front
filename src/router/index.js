@@ -31,38 +31,38 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '/', name: 'Home', component: HelloWorld, meta: {auth: true}
+      path: '/', name: 'Home', component: HelloWorld, meta: { auth: true }
     },
     {
       path: '/membros',
       component: Membros,
-      meta: {title: 'Membros'},
+      meta: { title: 'Membros' },
       children: [
         {
-          path: '', name: 'Membros', component: MembrosIndex, meta: {auth: true, title: 'Lista'}
+          path: '', name: 'Membros', component: MembrosIndex, meta: { auth: true, title: 'Lista' }
         },
         {
-          path: ':id', name: 'Membro', component: MembrosForm, props: true, meta: {auth: true, title: 'Formulário'}
+          path: ':id', name: 'Membro', component: MembrosForm, props: true, meta: { auth: true, title: 'Formulário' }
         }
       ]
     },
     {
       path: '/dizimos',
       component: Dizimos,
-      meta: {title: 'Dízimos'},
+      meta: { title: 'Dízimos' },
       children: [
         {
-          path: '', name: 'Dizimos', component: DizimosIndex, meta: {auth: true}
+          path: '', name: 'Dizimos', component: DizimosIndex, meta: { auth: true }
         },
         {
           path: 'membro/:membro_id',
           name: 'dizimos-membro',
           component: DizimosMembro,
           props: true,
-          meta: {auth: true},
+          meta: { auth: true },
           children: [
             {
-              path: ':dizimo_id', name: 'Membro - Dizimo', component: DizimosForm, props: true, meta: {auth: true}
+              path: ':dizimo_id', name: 'Membro - Dizimo', component: DizimosForm, props: true, meta: { auth: true }
             }
           ]
         }
@@ -71,17 +71,17 @@ const router = new Router({
     {
       path: '/usuarios',
       component: Usuarios,
-      meta: {title: 'Usuários'},
+      meta: { title: 'Usuários' },
       children: [
         {
-          path: '', name: 'Usuario', component: UsuariosIndex, meta: {auth: true, title: 'Lista'}
+          path: '', name: 'Usuario', component: UsuariosIndex, meta: { auth: true, title: 'Lista' }
         },
         {
           path: ':usuario_id',
           name: 'usuarios-form',
           component: UsuariosForm,
           props: true,
-          meta: {auth: true, title: 'Formulário'}
+          meta: { auth: true, title: 'Formulário' }
         }
       ]
     },
@@ -89,31 +89,31 @@ const router = new Router({
       path: '/relatorios',
       name: 'Relatorios',
       component: RelatoriosIndex,
-      meta: {auth: true},
+      meta: { auth: true },
       children: [
         {
           path: 'aniversariantes',
           name: 'relatorios-aniversariantes',
           component: RelatoriosAniversariantes,
           props: true,
-          meta: {auth: true, title: 'Aniversariantes'}
+          meta: { auth: true, title: 'Aniversariantes' }
         },
         {
           path: 'dizimos',
           name: 'relatorios-dizimos',
           component: RelatoriosDizimos,
           props: true,
-          meta: {auth: true, title: 'Dízimos'}
+          meta: { auth: true, title: 'Dízimos' }
         }
       ]
     },
     {
-      path: '/signin', name: 'Login', component: Sigin, meta: {auth: false}
+      path: '/signin', name: 'Login', component: Sigin, meta: { auth: false }
     },
     {
-      path: '/logout', component: Logout, meta: {auth: true}
+      path: '/logout', component: Logout, meta: { auth: true }
     },
-    {path: '*', name: '', component: NotFound}
+    { path: '*', name: '', component: NotFound }
   ]
 })
 

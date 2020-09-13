@@ -23,7 +23,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-Vue.use(VeeValidate, {locale: config.locale})
+Vue.use(VeeValidate, { locale: config.locale })
 Vue.use(Vuetify)
 Vue.use(Vuex)
 Vue.use(VueTheMask)
@@ -35,7 +35,7 @@ new Vue({
   i18n,
   store,
   template: '<App/>',
-  components: {App},
+  components: { App },
   created () {
     this.$store.dispatch('checkAuth')
   }

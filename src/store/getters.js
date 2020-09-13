@@ -25,9 +25,7 @@ export default {
       return null
     }
 
-    console.log(number)
-
-    return new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 2}).format(number)
+    return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(number)
   },
   formatNumber: (state) => (number) => {
     if (!number) {

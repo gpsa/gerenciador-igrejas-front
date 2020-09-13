@@ -2,7 +2,6 @@ import helper from '@/helper'
 import config from '@/config'
 
 export default {
-  appName: 'Gerenciador de Igrejas',
   pageTitle: 'Home',
   // menu: menu,
   user: {},

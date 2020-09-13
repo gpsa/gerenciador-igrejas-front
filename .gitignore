@@ -9,6 +9,10 @@ yarn-error.log*
 selenium-debug.log
 src/config.js
 
+# local env files
+.env.local
+.env.*.local
+
 # Editor directories and files
 .idea
 .vscode
