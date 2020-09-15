@@ -1,7 +1,5 @@
 const config = {
   locale: 'pt_BR', // en-US, zh-CN
-  // url: baseUrl
-  // ajaxUploadUrl: `${baseUrl}/admin/api/upload`,
   debug: {
     mock: false, // enable mock
     http: false // http request log
