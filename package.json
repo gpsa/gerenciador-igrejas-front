@@ -13,7 +13,7 @@
     "@vue/eslint-plugin": "^4.2.0",
     "axios": "^0.18.1",
     "babel-runtime": "^6.26.0",
-    "qs": "^6.5.1",
+    "qs": "^6.5.3",
     "url-parse": "^1.2.0",
     "v-money": "^0.8.1",
     "vee-validate": "^2.0.0",
